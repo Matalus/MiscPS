@@ -1,0 +1,1 @@
+﻿(Get-Process -Module) | Where-Object { $_.filename -like 'C:\Program Files (x86)\Microsoft Office*' -and $_.modulename -like '*.exe' }

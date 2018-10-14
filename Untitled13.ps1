@@ -1,0 +1,1 @@
+﻿(get-winevent -computername phxdc1 -FilterHashtable @{logname='security'; id=4776} -maxevents 1 | select message) | gm

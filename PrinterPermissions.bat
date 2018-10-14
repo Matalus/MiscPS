@@ -1,0 +1,1 @@
+FOR /F "tokens=*" %%A IN (U:\AZPRINTERS.TXT) DO (subinacl /printer \\PRINTAZ\%%A /allow=shamrockfoods\techsupport=F)
