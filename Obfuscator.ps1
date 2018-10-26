@@ -1,4 +1,5 @@
-﻿$user = $null
+﻿$RunDir = split-path -parent $MyInvocation.MyCommand.Definition
+$user = $null
 $pass = $null
 $cred = $null
 $user = Read-Host -Prompt "Enter Username"
@@ -10,12 +11,14 @@ $cred | Add-Member -NotePropertyName "passwordhash" -NotePropertyValue $pass
 $securecred = $null
 $securecred += $cred
 
-$securecred | Export-Csv U:\securecreds.csv -Append
+"Password Hashed: $secure"
+
+$securecred | Export-Csv $RunDir\securecreds.csv -Append
 
 
 
-$CSV = Import-Csv U:\securecreds.csv
-$neededcred = $CSV | ?{$_.username -eq "adage"}
+$CSV = Import-Csv $RunDir\securecreds.csv
+$neededcred = $CSV | Where-Object{$_.username -eq $user}
 $encrypt =  $neededcred.passwordhash | ConvertTo-SecureString
 
 
