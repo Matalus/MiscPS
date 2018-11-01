@@ -1,0 +1,12 @@
+{
+   "param1": "test value",
+   "param2": {
+      "property1": "test value 1",
+      "property2": "test value 2"
+   },
+   "param3":[
+      "array value 1",
+      "array value 2",
+      "array value 3"
+   ]
+}

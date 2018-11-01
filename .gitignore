@@ -1,0 +1,9 @@
+*.xml
+*.csv
+*.txt
+!*.ps*
+!*.bat
+!/param_example/
+key
+*.exe
+secure
