@@ -7,3 +7,4 @@
 key
 *.exe
 secure
+!CombineCSV/*.csv
