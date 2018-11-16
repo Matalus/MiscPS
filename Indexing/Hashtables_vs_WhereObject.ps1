@@ -56,21 +56,21 @@ ForEach($city in $LookupCities){
 Log "Looking up $($LookupCities.Count) Cities with Hashtable Indexing" "Magenta" ;""
 
 Log "Building Hashtable" "Yellow"
-$start = Get-Date # start of hashtable build
 $CityHash = @{} #Declare new hashtable
 
 #This can be one lined but I'll include long form for easier learning
-ForEach($city in $WorldCities){
-   #Hasthables can only have unique keys so you need to always check if a key already exists before adding a key
-   $key = "$($city.Name)|$($city.country)|$($city.lat)|$($city.lng)"
-   #if not containskey add City Name as Key and full Object as Value
-   if(!$CityHash.ContainsKey($key)){
-      #if not contains add key and value
-      $CityHash.Add($key,$city) # I add my unique key string as an index and the full item as value
+$measure = Measure-Command{
+   ForEach($city in $WorldCities){
+      #Hasthables can only have unique keys so you need to always check if a key already exists before adding a key
+      $key = "$($city.Name)|$($city.country)|$($city.lat)|$($city.lng)"
+      #if not containskey add City Name as Key and full Object as Value
+      if(!$CityHash.ContainsKey($key)){
+         #if not contains add key and value
+         $CityHash.Add($key,$city) # I add my unique key string as an index and the full item as value
+      }
    }
 }
-$end = (get-date) - $start
-Log "$($WorldCities.Count) Key Values pairs added to hashtable in $($end.Milliseconds)ms" "Green";"" #display results and time
+Log "$($WorldCities.Count) Key Values pairs added to hashtable in $([math]::round($measure.TotalMilliseconds,2))ms" "Green";"" #display results and time
 
 ForEach($City in $LookupCities){
    Log "Looking up $($city.name)" "Yellow"
