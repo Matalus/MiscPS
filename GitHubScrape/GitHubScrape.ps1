@@ -48,7 +48,7 @@ ForEach ($File in $RepoFiles) {
       $filename = Split-Path -leaf $RawURL.href
       $filepath = "$filedir\$filename"
       "Writing to: $filepath"
-      $Raw.Content | set-content -path "$filedir\$filename" -Force
+      $Raw.Content | set-content -path $filepath -Force
    }
    else {
       "No Raw URL Skipping"
