@@ -1,13 +1,19 @@
 ﻿$options = New-PSSessionOption -SkipCACheck
+
+$RemoteHost = Read-Host -prompt "Enter Remote Host"
+
 if(!$cred){
-    $cred = Get-Credential -Message "Enter Remote Credentials" -UserName "Administrator"
+    $cred = Get-Credential -Message "Enter Remote Credentials"
 }
 $sessionparams = @{
-   ComputerName = "ec2-18-191-80-42.us-east-2.compute.amazonaws.com"
-   Port = 5986
-   Credential = $cred
-   SessionOption = $options
-   UseSSL = $true
+    Name = $RemoteHost 
+    ComputerName = $RemoteHost
+    Port = 5986
+    Credential = $cred
+    SessionOption = $options 
+    UseSSL = $true
 }
 
-Enter-PSSession @sessionparams
+"Creating Session: $($sessionparams.Name)"
+$session = New-PSSession @sessionparams
+Enter-PSSession -Session $session

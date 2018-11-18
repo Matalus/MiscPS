@@ -1,3 +1,26 @@
-﻿CD "C:\Program Files (x86)\Google\Chrome\Application"
-Start-Process "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "--allow-no-sandbox-job --disable-gpu --disable-bundled-ppapi-flash http://www.xataxrs.com/"
-Start-Process "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" "--allow-no-sandbox-job --disable-gpu --disable-bundled-ppapi-flash http://172.26.50.251:8080/Shamrock/XLr8Login.jsp"
+﻿
+$ErrorActionPreference = 'SilentlyContinue'
+
+$Servers = Get-ADComputer -Filter * -SearchBase "OU=IT,DC=Contoso,DC=Com" -SearchScope Subtree -Properties Name | sort Name
+
+$WmiObject = @{
+   Class  = "Win32_Service"
+   Filter = "startmode = 'auto' AND state != 'running'"
+}
+
+foreach ($Server in $Servers){
+
+   foreach ($Svc in Get-WmiObject @WmiObject -ComputerName $Server){
+
+      Start-Service $Svc | Out-Null
+
+      Write-Host "Starting the $Svc.DisplayName service on $Server"
+
+   }
+
+Write-Host "Complete"
+
+}
+
+
+}
