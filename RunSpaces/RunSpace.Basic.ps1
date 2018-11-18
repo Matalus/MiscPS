@@ -69,15 +69,15 @@ $classes = @( #array of sample data first 50 WMI classes
    "Win32_USBHub",
    "Win32_NetworkAdapter"
 )
-$count = 0
-ForEach($class in $classes){
-   $count++
+$count = 0 #counter for loop
+ForEach($class in $classes){ #loop through WMI classes and create runspace for each
+   $count++ #increment counter
    $runspace = [PowerShell]::Create() #create the runspace
    "$count : Created RunSpace for class : $class"
    $null = $runspace.AddScript($ScriptBlock) #set command
    $null = $runspace.AddArgument($class) #set params
    $runspace.RunSpacePool = $pool #attach to pool
-   $RunSpaces += [PSCustomObject]@{
+   $RunSpaces += [PSCustomObject]@{ #psobject for tracking
       Count = $count
       Pipe = $runspace
       Status = $runspace.BeginInvoke()
@@ -86,12 +86,12 @@ ForEach($class in $classes){
 
 $Results = @() #empty array for results
 
-while ($RunSpaces.status -ne $null){ #wait for Status to complete
-   $completed = $RunSpaces | Where-Object{
+while ($null -ne $RunSpaces.status){ #wait for Status to complete
+   $completed = $RunSpaces | Where-Object{ #get completed runspaces
       $_.Status.IsCompleted -eq $true
    }
    foreach($runspace in $completed){ #write completed runspaces to results array
-      $Results += [PSCustomObject]@{
+      $Results += [PSCustomObject]@{ #psobject for results array and append to results @()
          Count = $runspace.Count
          Return = $runspace.Pipe.EndInvoke($runspace.status)
          Command = $runspace.Pipe.Commands.Commands
