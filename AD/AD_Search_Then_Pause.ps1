@@ -1,4 +1,6 @@
-﻿#retrive the OUs and set the scope
+﻿#this is a demonstration to tweak someone's script to add a pause at the end when executed from right click
+
+#retrive the OUs and set the scope
 $search = "" #hard code Distinguished path if you want otherwise prompt to select an OU
 if($search.length -lt 1){
     $search = Get-ADOrganizationalUnit -Filter * | Out-GridView -Title "Select an OU Scope" -PassThru
