@@ -1,0 +1,19 @@
+{
+   "Services":[
+      "com.docker.service",
+      "spooler",
+      "SNMP",
+      "W3SVC"
+   ],
+   "SleepTimer": 5,
+   "EventLogFilter": 2,
+   "Email":{
+      "smtp": "smtp-mail.outlook.com",
+      "From": "matt.hamende@outlook.com",
+      "To": "matt.hamende@gmail.com",
+      "Port": 587,
+      "Username": "matt.hamende@outlook.com",
+      "Password": null
+
+   }
+}
