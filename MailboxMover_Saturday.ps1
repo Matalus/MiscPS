@@ -107,10 +107,10 @@ foreach($Mailbox in $CSV)
     }
 
     #Mail Variables
-$To="istech3@shamrockfoods.com"
-#$To="Matt_Hamende@shamrockfoods.com"
-$SMTP="OA.SHAMROCKFOODS.COM"
-$FROM="winservice@shamrockfoods.com"
+$To="istech3@corpdomain.com"
+#$To="Matt_Hamende@corpdomain.com"
+$SMTP="OA.corpdomain.COM"
+$FROM="winservice@corpdomain.com"
 $SUBJECT="Mailbox Move Report"
 $BODY = ""
 

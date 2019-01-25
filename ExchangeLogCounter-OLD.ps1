@@ -7,9 +7,9 @@ $d = (get-date -format MMddyyy_HHmmtt)
 Start-Transcript -path \\vault\tech3\scripts\matt\logs\ExchangeLogCounter_$d.txt  -append
 
 #Mail Variables
-$To="ServerAdmins@shamrockfoods.com"
-$SMTP="OA.SHAMROCKFOODS.COM"
-$FROM="winservice@shamrockfoods.com"
+$To="ServerAdmins@corpdomain.com"
+$SMTP="OA.corpdomain.COM"
+$FROM="winservice@corpdomain.com"
 $Subject = "Exchange Log Counter"
 
 $logs1="\\azmail1\m$\logs1\SG1logs"

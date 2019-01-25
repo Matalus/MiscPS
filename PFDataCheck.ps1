@@ -18,6 +18,6 @@ ELSE
             [string]$BODY = ""
             $BODY = $TRAFFICDATA | ConvertTo-Html -Head $html
 
-            Send-MailMessage -To "Matt_Hamende@shamrockfoods.com" -From "winservice@shamrockfoods.com" -Body $BODY -BodyAsHtml -Subject "PF Data Check" -SmtpServer "OA.shamrockfoods.com"
+            Send-MailMessage -To "Matt_Hamende@corpdomain.com" -From "winservice@corpdomain.com" -Body $BODY -BodyAsHtml -Subject "PF Data Check" -SmtpServer "OA.corpdomain.com"
 
             }

@@ -20,10 +20,10 @@ IF($query -ne $null)
         "FPOLICY Disabled"
 
         #Mail Variables
-        $To="system_engineers@shamrockfoods.com"
-        #$To="Matt_Hamende@shamrockfoods.com"
-        $SMTP="OA.SHAMROCKFOODS.COM"
-        $FROM="winservice@shamrockfoods.com"
+        $To="system_engineers@corpdomain.com"
+        #$To="Matt_Hamende@corpdomain.com"
+        $SMTP="OA.corpdomain.COM"
+        $FROM="winservice@corpdomain.com"
         $SUBJECT="Filer FPOLICY Alert on 3040azb"
         $BODY = ""
 
@@ -42,7 +42,7 @@ IF($query -ne $null)
         $BODY += $query | select TimeStamp,Source,Severity,Message | ConvertTo-Html -Head $html
 
 
-        Send-MailMessage -To $TO -From $FROM -Subject $SUBJECT -Body $BODY -SmtpServer $SMTP -BodyAsHtml -cc "Danny_Vasquez@shamrockfoods.com"
+        Send-MailMessage -To $TO -From $FROM -Subject $SUBJECT -Body $BODY -SmtpServer $SMTP -BodyAsHtml -cc "Danny_Vasquez@corpdomain.com"
         }
         
 

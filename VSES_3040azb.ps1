@@ -17,10 +17,10 @@ IF($query -ne $null)
        
 
         #Mail Variables
-        #$To="system_engineers@shamrockfoods.com"
-        $To="Matt_Hamende@shamrockfoods.com","Steve_Tollaksen@shamrockfoods.com"
-        $SMTP="OA.SHAMROCKFOODS.COM"
-        $FROM="winservice@shamrockfoods.com"
+        #$To="system_engineers@corpdomain.com"
+        $To="Matt_Hamende@corpdomain.com","Steve_Tollaksen@corpdomain.com"
+        $SMTP="OA.corpdomain.COM"
+        $FROM="winservice@corpdomain.com"
         $SUBJECT="VSCAN Alert on 3040azb"
         $BODY = ""
 
