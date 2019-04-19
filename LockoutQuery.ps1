@@ -5,7 +5,7 @@
 #Sends email with results.
 $LockedOut = $null
 $LockedOut = Get-ADUser -Properties AccountLockoutTime,LastBadPasswordAttempt,BadPwdCount,LockedOut  -Filter * | ?{$_.AccountLockOutTime -ge (Get-Date).AddMinutes(-10) -and `
-$_.BadPwdCount -ge 5 -and $_.Distinguishedname -notlike "*OU=External,DC=SHAMROCKFOODS,DC=com*" -and $_.name -notlike "iisuser"}
+$_.BadPwdCount -ge 5 -and $_.Distinguishedname -notlike "*OU=External,DC=corpdomain,DC=com*" -and $_.name -notlike "iisuser"}
 $LockedOut | ft name,samaccountname,LockedOut,AccountLockoutTime,BadPwdCount,LastBadPasswordAttempt
 $DomainControllers = Get-ADDomainController -Filter *   
 $results = $null 
@@ -68,9 +68,9 @@ IF($results -ne $null)
 {
 
 #Mail Variables
-$To="matt_hamende@shamrockfoods.com","Steve_Tollaksen@shamrockfoods.com","Miguel_Rivera@shamrockfoods.com","Aaron_Webster@shamrockfoods.com","Carmen_Sanchez@shamrockfoods.com","Don_Wenzl_III@shamrockfoods.com","Tom_Donaldson@shamrockfoods.com"
-$SMTP="OA.SHAMROCKFOODS.COM"
-$FROM="winservice@shamrockfoods.com"
+$To="matt_hamende@corpdomain.com","Steve_Tollaksen@corpdomain.com","Miguel_Rivera@corpdomain.com","Aaron_Webster@corpdomain.com","Carmen_Sanchez@corpdomain.com","Don_Wenzl_III@corpdomain.com","Tom_Donaldson@corpdomain.com"
+$SMTP="OA.corpdomain.COM"
+$FROM="winservice@corpdomain.com"
 $SUBJECT="AD - Account Lockout Alert"
 [String]$BODY = ""
 

@@ -62,9 +62,9 @@ ForEach($VM in $FARMSERVERS)
             
 
 #Mail Variables
-$To="matt_hamende@shamrockfoods.com"
-$SMTP="OA.SHAMROCKFOODS.COM"
-$FROM="winservice@shamrockfoods.com"
+$To="matt_hamende@corpdomain.com"
+$SMTP="OA.corpdomain.COM"
+$FROM="winservice@corpdomain.com"
 $SUBJECT="XenApp6 - FARM Availability Report"
 [String]$BODY = ""
 

@@ -24,9 +24,9 @@ $html = $html + “TD{border-width: 1px;padding: 2px;border-style: solid;border-
 $html = $html + “</style>”
 
 #Mail Variables
-$To="ServerAdmins@shamrockfoods.com"
-$SMTP="OA.SHAMROCKFOODS.COM"
-$FROM="winservice@shamrockfoods.com"
+$To="ServerAdmins@corpdomain.com"
+$SMTP="OA.corpdomain.COM"
+$FROM="winservice@corpdomain.com"
 $Subject = "Exchange Log Counter"
 
 [string]$BODY = $TABLE | ConvertTo-Html -Head $html

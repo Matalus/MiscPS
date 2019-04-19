@@ -11,7 +11,7 @@ $ICA.Address = $server
 $ICA.Application = ""
 $ICA.Username = $user
 $ICA.SetProp("Password",$password)
-$ICA.Domain = "shamrockfoods"
+$ICA.Domain = "corpdomain"
 $ICA.Launch = $true
 $ICA.SetProp("Ispassthru",$true)
 $ICA.OutputMode = [WFICALib.OutputMode]::OutputModeNormal

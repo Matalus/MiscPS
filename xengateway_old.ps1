@@ -31,9 +31,9 @@ IF($RESULTS -ne $null)
 
     {
     #Mail Variables
-    $To="system_engineers@shamrockfoods.com"
-    $SMTP="OA.SHAMROCKFOODS.COM"
-    $FROM="winservice@shamrockfoods.com"
+    $To="system_engineers@corpdomain.com"
+    $SMTP="OA.corpdomain.COM"
+    $FROM="winservice@corpdomain.com"
     $SUBJECT="XenGateway ICA Listener Alert"
     [String]$BODY = ""
 

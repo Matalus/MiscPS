@@ -1,9 +1,9 @@
 ﻿$CSV = Get-Content u:\deletelist.csv
 
-$objUser = New-Object System.Security.Principal.NTAccount("shamrockfoods", "amis5235")
+$objUser = New-Object System.Security.Principal.NTAccount("corpdomain", "amis5235")
 $Right = "FullControl"
 $InheritanceFlag = [System.Security.AccessControl.InheritanceFlags]::ContainerInherit
-$rule = new-object System.Security.AccessControl.FileSystemAccessRule([System.Security.Principal.NTAccount]'SHAMROCKFOODS\Domain Admins',"FullControl","Allow","ContainerInherit")
+$rule = new-object System.Security.AccessControl.FileSystemAccessRule([System.Security.Principal.NTAccount]'corpdomain\Domain Admins',"FullControl","Allow","ContainerInherit")
 
 $count = 0
 CLS
@@ -20,7 +20,7 @@ Write-Host Getting ACL
     $ACL = $QUERY | Get-Acl
     $ACL
     Write-Host Modifying ACL rules
-    $ACL.SetOwner(([System.Security.Principal.NTAccount]'SHAMROCKFOODS\Domain Admins'))
+    $ACL.SetOwner(([System.Security.Principal.NTAccount]'corpdomain\Domain Admins'))
     $ACL.SetAccessRule($rule)
 
     Write-Host Applying ACL Rules to Directory

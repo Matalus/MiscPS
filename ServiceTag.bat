@@ -7,7 +7,7 @@ echo %computername% >> c:\windows\temp\servicetag.txt
 echo %username% >> c:\windows\temp\servicetag.txt
 wmic /append:c:\windows\temp\servicetag.txt /namespace:\\root\cimv2 path win32_bios get serialnumber
 echo ------------------------------- >> c:\windows\temp\servicetag.txt
-type c:\windows\temp\servicetag.txt >> \\userdata.shamrockfoods.com\entbpi$\hardwarequery\servicetaginventory.txt
+type c:\windows\temp\servicetag.txt >> \\userdata.corpdomain.com\entbpi$\hardwarequery\servicetaginventory.txt
 ) ELSE (
 echo File Exists Exiting
 )
