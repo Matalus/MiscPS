@@ -15,7 +15,6 @@ $invokeParams = @{
          AutoAdminLogon       = Set-ItemProperty $args[0] "AutoAdminLogon" -Value "1" -type String
          DefaultDomainName    = Set-ItemProperty $args[0] "DefaultDomainName" -Value $args[1] -type String
          AltDefaultUserName   = Set-ItemProperty $args[0] "AltDefaultUserName" -Value $args[2] -type String
-
       }
    } 
 }
