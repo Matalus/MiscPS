@@ -4,7 +4,7 @@ if($PSVersionTable.PSVersion.Major -lt 6){
    Write-Error "This script requires PS Core 6.x and up"
 }
 
-$vcenter = "vcenter.uhaul.amerco.org"
+$vcenter = "vcenter.contoso.com"
 if(!$cred){
    $cred = Get-Credential
 }
